@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import mois.CalendrierAnnuel;
+import calendrierAnnuel.CalendrierAnnuel;
 
 class CalendrierAnnuelTest {
 	static CalendrierAnnuel calendrier;
@@ -28,10 +28,25 @@ class CalendrierAnnuelTest {
 	}
 
 	@Test
+	void testReserver1() {
+		assertTrue(calendrier.reserver(20, 10), "reservation du 20/10 devrait être possible");
+		assertFalse(calendrier.estLibre(20, 10), "20/10 devrait être occuper");
+	}
+
+	@Test
 	void testReserver() {
 		assertTrue(calendrier.reserver(20, 10), "reservation du 20/10 devrait être possible");
 		assertFalse(calendrier.estLibre(20, 10), "20/10 devrait être occuper");
 		assertFalse(calendrier.reserver(20, 10), "reservation du 20/10 ne devrait pas être possible");
+	}
+
+	void testReserver2() {
+		assertTrue(calendrier.reserver(20, 10), "reservation du 20/10 devrait être possible");
+	}
+
+	void testReserver3() {
+		assertTrue(calendrier.reserver(20, 10), "reservation du 20/10 devrait être possible");
+		assertFalse(calendrier.estLibre(20, 10), "20/10 devrait être occuper");
 	}
 
 }
